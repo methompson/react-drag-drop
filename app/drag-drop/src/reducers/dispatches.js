@@ -1,5 +1,5 @@
 const dispatches = {
-    ADD_TO_CART : "ADD_TO_CART",
+    ADD_NEW_BLOCK : "ADD_NEW_BLOCK",
 }
 
 export default dispatches;

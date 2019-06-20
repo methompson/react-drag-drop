@@ -4,8 +4,16 @@ const block = (props) => {
 
     return (
         <div
-            onMouseDown={ props.activateDrag }
-        >Block</div>
+            className='block'
+            onMouseDown={ (ev) => {
+                props.startDrag(ev.target);
+            }  }
+            onMouseUp={ (ev) => {
+                props.stopDrag(ev.target);
+            } }
+        >
+            Block
+        </div>
     );
 }
 
