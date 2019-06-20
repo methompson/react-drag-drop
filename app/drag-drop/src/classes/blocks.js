@@ -6,15 +6,15 @@ import Block from '../components/block';
 
 class Blocks extends Component {
 
-    startDrag(el) {
+    startDrag = (el) => {
         el.classList.add('highlight');
     }
 
-    stopDrag(el) {
+    stopDrag = (el) => {
         el.classList.remove('highlight');
     }
 
-    makeId() {
+    makeId = () => {
         //Random character ID creator.
         //Not cryptographically secure. Simply for use with making unique IDs
         let text = "";
@@ -26,7 +26,9 @@ class Blocks extends Component {
         return text;
     }
 
-    addNewBlock() {
+    addNewBlock = () => {
+        
+        console.log(this);
 
         let id = this.makeId();
         let newBlock = {

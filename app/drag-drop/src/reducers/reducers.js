@@ -15,7 +15,10 @@ reducers.rootReducer = (state = initialState, action) => {
                 ...state.blocks
             };
             blocks[action.id] = action.newBlock;
-            return state;
+            return {
+                ...state,
+                blocks: blocks
+            };
         default:
             //Nothing now
     }
