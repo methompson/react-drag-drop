@@ -1,7 +1,14 @@
 .highlight {
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .block {
-    display: inline;
+    display: inline-block;
+    margin: 1em;
+    padding: 0.5em;
+    border: 1px solid black;
+}
+
+.ghost {
+    opacity: 0.2;
 }

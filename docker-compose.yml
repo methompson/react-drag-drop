@@ -3,7 +3,7 @@ services:
     node:
         build: .
         ports:
-            - '3000:3000'
+            - '3030:3000'
         volumes:
             - ./app:/srv/app
         container_name: react-drag-drop

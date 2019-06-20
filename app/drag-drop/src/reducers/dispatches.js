@@ -1,5 +1,7 @@
 const dispatches = {
     ADD_NEW_BLOCK : "ADD_NEW_BLOCK",
+    ADD_DRAGGABLE_ELEMENT: "ADD_DRAGGABLE_ELEMENT",
+    REMOVE_DRAGGABLE_ELEMENT: "REMOVE_DRAGGABLE_ELEMENT",
 }
 
 export default dispatches;
