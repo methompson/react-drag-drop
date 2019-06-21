@@ -3,14 +3,14 @@ import dispatches from '../reducers/dispatches';
 const initialState = {
     blocks: {},
     draggedEl: '',
+    dragOverEl: '',
+    dragProp: null,
 };
 
 let reducers = {};
 
 reducers.rootReducer = (state = initialState, action) => {
     //console.log(state);
-
-
 
     switch(action.type){
         case dispatches.ADD_NEW_BLOCK:
@@ -23,16 +23,33 @@ reducers.rootReducer = (state = initialState, action) => {
                 ...state,
                 blocks: blocks
             };
+
         case dispatches.ADD_DRAGGABLE_ELEMENT:
             return {
                 ...state,
                 draggedEl: action.draggedEl
             };
+
         case dispatches.REMOVE_DRAGGABLE_ELEMENT:
             return {
                 ...state,
                 draggedEl: '',
             };
+
+        case dispatches.ADD_DRAG_OVER:
+            return {
+                ...state,
+                dragOverEl: action.dragOverEl,
+                dragProp: action.dragProp
+            };
+
+        case dispatches.REMOVE_DRAG_OVER:
+            return {
+                ...state,
+                dragOverEl: '',
+                dragProp: null,
+            };
+
         default:
             //Nothing now
     }

@@ -19,13 +19,28 @@ class Blocks extends Component {
             type: dispatches.ADD_DRAGGABLE_ELEMENT,
             draggedEl: id,
         });
-    }
+    };
 
     stopDrag = () => {
         this.props.dispatch({
-            type: dispatches.REMOVE_DRAGGABLE_ELEMENT
+            type: dispatches.REMOVE_DRAGGABLE_ELEMENT,
         });
-    }
+    };
+
+    addDragOver = (ev, id, proportion) => {
+        this.props.dispatch({
+            type: dispatches.ADD_DRAG_OVER,
+            dragOverEl: id,
+            dragProp: proportion,
+        });
+    };
+
+    removeDragOver = () => {
+
+        this.props.dispatch({
+            type: dispatches.REMOVE_DRAG_OVER,
+        });
+    };
 
     makeId = () => {
         //Random character ID creator.
@@ -37,7 +52,7 @@ class Blocks extends Component {
             text += possible.charAt(Math.floor(Math.random() * possible.length));
 
         return text;
-    }
+    };
 
     addNewBlock = () => {
 
@@ -53,7 +68,7 @@ class Blocks extends Component {
             newBlock: newBlock
         });
 
-    }
+    };
 
     render(){
         //simplifying the variable name
@@ -65,8 +80,12 @@ class Blocks extends Component {
                     key={ block }
                     id={ b[block].id }
                     dragEl={ this.props.draggedEl }
+                    dragOverEl={this.props.dragOverEl}
                     startDrag={ this.startDrag }
                     stopDrag={ this.stopDrag }
+                    addDragOver={this.addDragOver}
+                    removeDragOver={this.removeDragOver}
+                    dragProp={this.props.dragProp}
                 />
             );
         });
@@ -93,6 +112,8 @@ const mapStateToProps = (state) => {
     return {
         blocks: state.blocks,
         draggedEl: state.draggedEl,
+        dragOverEl: state.dragOverEl,
+        dragProp: state.dragProp,
     };
 }
 
